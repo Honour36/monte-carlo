@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Monte Carlo Race Simulator
 
-## Getting Started
+Browser-based race simulation with stochastic dynamics and Monte Carlo win-rate analysis. Built with Next.js and Recharts.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This repo is ready for Vercel with zero extra configuration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Option A — Import from GitHub (recommended)
+
+1. Sign in at [vercel.com](https://vercel.com) with GitHub.
+2. Click **Add New… → Project**.
+3. Import **`Honour36/monte-carlo`**.
+4. Leave defaults:
+   - **Framework Preset:** Next.js
+   - **Root Directory:** `.` (repository root)
+   - **Build Command:** `npm run build`
+   - **Install Command:** `npm install`
+   - **Output Directory:** (leave empty — Next.js handles this)
+5. Click **Deploy**.
+
+No environment variables are required. The app runs entirely in the browser.
+
+### Option B — Vercel CLI
+
+```bash
+npm i -g vercel
+vercel login
+vercel link
+vercel --prod
+```
+
+## Scripts
+
+| Command        | Description              |
+| -------------- | ------------------------ |
+| `npm run dev`  | Development server       |
+| `npm run build`| Production build         |
+| `npm run start`| Run production build     |
+| `npm run lint` | ESLint                   |
+
+## Project layout
+
+- `app/` — Next.js UI (`RaceSimulator` client component)
+- `lib/` — Pure simulation engine (`simulateRace`, `runMonteCarlo`)
+- `context/` — Project specs and conventions
